@@ -1,5 +1,4 @@
 import argparse
-import os
 from utils import folder_functions
 
 def main():
