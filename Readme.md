@@ -15,6 +15,11 @@ The first positional argument is your project name. -prj_dir defines the desired
 
 --prj-dir is optional, if not given the directory will be created on the relative position and named like the project (arg 1).
 
+## .gitignore
+I am using most of the time a default .gitignore from GH: [https://github.com/github/gitignore/blob/main/Python.gitignore](https://github.com/github/gitignore/blob/main/Python.gitignore)
+Currently this is not configurable (might happen in a future iteration). For now if you want to change the link adapt the [gitignore_url](utils/project.py).
+If you dont want a gitignore at all remove the call [project.initialize_folder_file_structure()](bootstrap.py)
+
 ## My project structure
 ![Illustration of project structure](docs/assests/image.png)
 

@@ -1,4 +1,5 @@
 import os
+import urllib.request
             
 # think about "pathbuilder", currently we have the problem that we need some kind of "base path" which
 # is extended by the kv pairs.
@@ -46,23 +47,35 @@ class Project:
         
     def initialize_folder_file_structure(self):
         folder_structure = {
-            "project": [
-                "__init__.py",
-                {"module1": ["__init__.py", "file1.py"]},
-                {"module2": ["__init__.py", "file2.py"]},
-                {"utils": ["__init__.py", "helper_functions.py"]},
-                "main.py",
+            self.folder: [
+                {self.name : [
+                            "__init__.py", 
+                            "main.py",
+                            {"module1": ["__init__.py", "file1.py"]},
+                            {"module2": ["__init__.py", "file2.py"]},
+                            {"utils": ["__init__.py", "helper_functions.py"]}
+                            ]
+                },
                 {"tests": ["__init__.py", "test_module1.py"]},
                 "docs",
                 "requirements.txt",
                 "README.md",
+                ".gitignore"
             ]
         }
         print("Configured folder_structure:")
         print(folder_structure)
         print("Creating project files at ", self.folder)
-
         create_structure(folder_structure, self.folder)
+    
+    def download_gitignore(self):
+        print("Bootstrapping .gitignore...")
+        gitignore_url = 'https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore'
+        gitignore_path = os.path.join(self.folder, '.gitignore')
+        print("Fetching ", gitignore_url, "into", gitignore_path)
+        with urllib.request.urlopen(gitignore_url) as response, open(gitignore_path, 'wb') as out_file:
+            data = response.read()
+            out_file.write(data) 
         
 
 
