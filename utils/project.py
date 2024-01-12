@@ -1,5 +1,7 @@
 import os
 import urllib.request
+import venv
+import subprocess
             
 # think about "pathbuilder", currently we have the problem that we need some kind of "base path" which
 # is extended by the kv pairs.
@@ -42,7 +44,7 @@ class Project:
         expanded_path = os.path.expanduser(folder)
         # Get the absolute path
         full_path = os.path.abspath(expanded_path)
-        self.folder = full_path
+        self.folder = os.path.join(full_path, name)
 
         
     def initialize_folder_file_structure(self):
@@ -77,9 +79,50 @@ class Project:
             data = response.read()
             out_file.write(data) 
         
+    def create_venv(self):
+        """
+        Create a virtual environment at the specified path.
+
+        Args:
+        - venv_path (str): The path where the virtual environment should be created.
+        """
+        try:
+            venv.create(self.folder, with_pip=True)
+            print(f"Virtual environment created at: {self.folder}")
+        except Exception as e:
+            print(f"Error creating virtual environment: {e}")
+
+    def activate_venv(self):
+        activate_script = "activate" if os.name == "nt" else "activate"
+        activate_path = os.path.join(self.folder, "Scripts" if os.name == "nt" else "bin", activate_script)
+        subprocess.run([activate_path], shell=True, check=True)
+        print(f"Virtual environment activated.")
+
+    def write_main_py(self):
+        """
+        Write a simple main.py file at the specified path.
+
+        Args:
+        - file_path (str): The path where the main.py file should be created.
+        """
+        content = """
+def main():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    main()
+    """
+        main_py_path = os.path.join(self.folder, self.name, "main.py")
+        try:
+            with open(main_py_path, "w") as file:
+                file.write(content)
+            print(f"main.py created at: {main_py_path}")
+        except Exception as e:
+            print(f"Error writing main.py file: {e}")
+
+    # Example usage:
 
 
-
-        
-        
+            
+            
         

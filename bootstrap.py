@@ -20,6 +20,9 @@ def main():
     print ("Started bootstrapping at: ", directory)
     project = project_module.Project(name, directory)
     project.initialize_folder_file_structure()
+    project.write_main_py()
+    project.download_gitignore()
+    project.create_venv()
     
     
 if __name__ == "__main__":
