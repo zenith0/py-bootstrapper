@@ -41,21 +41,20 @@ class TestFolderStructure(unittest.TestCase):
                 actual_rel_paths.add(os.path.relpath(os.path.join(root, name), self.project_path))
 
         expected_rel_paths = {
-            'project\\__init__.py',
-            'project\\module1\\__init__.py',
-            'project\\module1\\file1.py',
-            'project\\module2\\__init__.py',
-            'project\\module2\\file2.py',
-            'project\\utils\\__init__.py',
-            'project\\utils\\helper_functions.py',
-            'project\\main.py',
-            'project\\tests\\__init__.py',
-            'project\\tests\\test_module1.py',
-            'project\\docs',
-            'project\\requirements.txt',
-            'project\\README.md'
+            os.path.join('project', '__init__.py'),
+            os.path.join('project', 'module1', '__init__.py'),
+            os.path.join('project', 'module1', 'file1.py'),
+            os.path.join('project', 'module2', '__init__.py'),
+            os.path.join('project', 'module2', 'file2.py'),
+            os.path.join('project', 'utils', '__init__.py'),
+            os.path.join('project', 'utils', 'helper_functions.py'),
+            os.path.join('project', 'main.py'),
+            os.path.join('project', 'tests', '__init__.py'),
+            os.path.join('project', 'tests', 'test_module1.py'),
+            os.path.join('project', 'docs'),
+            os.path.join('project', 'requirements.txt'),
+            os.path.join('project', 'README.md')
         }
-
         self.assertEqual(actual_rel_paths, expected_rel_paths)
 
 if __name__ == '__main__':
