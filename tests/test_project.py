@@ -90,7 +90,8 @@ class TestFolderStructure(unittest.TestCase):
             content = file.read()        
         # Check if the venv marker file exists in the current directory
         self.assertTrue (len(content) > 0)
-  
+    
+    # TODO: fix test folders - should be created inside this workspace 
     def test_create_venv(self):
         prj = Project("test_project", self.project_path)
         prj.initialize_folder_file_structure()
@@ -101,7 +102,7 @@ class TestFolderStructure(unittest.TestCase):
         Returns:
         - bool: True if venv is available, False otherwise.
         """
-        venv_marker_file = os.path.join(self.project_path, "test_project", "pyvenv.cfg")  # This file exists in the venv directory
+        venv_marker_file = os.path.join(self.project_path, "test_project/venv", "pyvenv.cfg")  # This file exists in the venv directory
 
         # Check if the venv marker file exists in the current directory
         self.assertTrue(os.path.exists(venv_marker_file))

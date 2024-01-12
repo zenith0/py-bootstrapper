@@ -87,7 +87,7 @@ class Project:
         - venv_path (str): The path where the virtual environment should be created.
         """
         try:
-            venv.create(self.folder, with_pip=True)
+            venv.create(os.path.join(self.folder, "venv"), with_pip=True)
             print(f"Virtual environment created at: {self.folder}")
         except Exception as e:
             print(f"Error creating virtual environment: {e}")
