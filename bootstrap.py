@@ -17,7 +17,7 @@ def main():
     if not directory:
         directory = name
         print ("no directory was set, using project name as folder location: ", directory)
-    print ("Started bootstrapping at: ", )
+    print ("Started bootstrapping at: ", directory)
     project = project_module.Project(name, directory)
     project.initialize_folder_file_structure()
     

@@ -37,7 +37,11 @@ class Project:
         self.name = name
         if folder is None:
             folder = name
-        self.folder = os.path.abspath(folder)
+            # Expand ~ to the user's home directory
+        expanded_path = os.path.expanduser(folder)
+        # Get the absolute path
+        full_path = os.path.abspath(expanded_path)
+        self.folder = full_path
 
         
     def initialize_folder_file_structure(self):
