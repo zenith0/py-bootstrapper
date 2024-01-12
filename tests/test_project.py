@@ -43,23 +43,23 @@ class TestFolderStructure(unittest.TestCase):
                 actual_rel_paths.add(os.path.relpath(os.path.join(root, name), self.project_path))
 
         expected_rel_paths = {
-            os.path.join('test_project', '__init__.py'),
-            os.path.join('test_project', 'main.py'),
-            os.path.join('test_project', 'module1', '__init__.py'),
-            os.path.join('test_project', 'module1', 'file1.py'),
-            os.path.join('test_project', 'module2', '__init__.py'),
-            os.path.join('test_project', 'module2', 'file2.py'),
-            os.path.join('test_project', 'utils', '__init__.py'),
-            os.path.join('test_project', 'utils', 'helper_functions.py'),
-            os.path.join('tests', '__init__.py'),
-            os.path.join('tests', 'test_module1.py'),
-            os.path.join('docs'),
-            os.path.join('requirements.txt'),
-            os.path.join('README.md'),
-            os.path.join('.gitignore')
+            os.path.join('test_project', 'test_project', '__init__.py'),
+            os.path.join('test_project', 'test_project', 'main.py'),
+            os.path.join('test_project', 'test_project', 'module1', '__init__.py'),
+            os.path.join('test_project', 'test_project', 'module1', 'file1.py'),
+            os.path.join('test_project', 'test_project', 'module2', '__init__.py'),
+            os.path.join('test_project', 'test_project', 'module2', 'file2.py'),
+            os.path.join('test_project', 'test_project', 'utils', '__init__.py'),
+            os.path.join('test_project', 'test_project', 'utils', 'helper_functions.py'),
+            os.path.join('test_project', 'tests', '__init__.py'),
+            os.path.join('test_project', 'tests', 'test_module1.py'),
+            os.path.join('test_project', 'docs'),
+            os.path.join('test_project', 'requirements.txt'),
+            os.path.join('test_project', 'README.md'),
+            os.path.join('test_project', '.gitignore')
         }
         self.assertEqual(actual_rel_paths, expected_rel_paths)
-        gitignore_path = os.path.join(self.project_path, '.gitignore')
+        gitignore_path = os.path.join(self.project_path, 'test_project', '.gitignore')
 
         with open(gitignore_path, 'r') as gitignore_file:
             gitignore_contents = gitignore_file.read()
@@ -72,7 +72,7 @@ class TestFolderStructure(unittest.TestCase):
         prj.initialize_folder_file_structure()
         prj.download_gitignore()
         
-        gitignore_path = os.path.join(self.project_path,'.gitignore')
+        gitignore_path = os.path.join(self.project_path, "test_project", '.gitignore')
 
         with open(gitignore_path, 'r') as gitignore_file:
             gitignore_contents = gitignore_file.read()

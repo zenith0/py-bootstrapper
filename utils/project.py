@@ -120,7 +120,6 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"Error writing main.py file: {e}")
 
-    # Example usage:
 
 
             
