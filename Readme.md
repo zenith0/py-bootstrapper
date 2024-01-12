@@ -21,6 +21,9 @@ I am using most of the time a default .gitignore from GH: [https://github.com/gi
 Currently this is not configurable (might happen in a future iteration). For now if you want to change the link adapt the [gitignore_url](utils/project.py).
 If you dont want a gitignore at all remove the call [project.initialize_folder_file_structure()](bootstrap.py)
 
+## venv
+A virtual env is automatically created. Please note: it is not activated yet.
+
 ## My project structure
 ![Illustration of project structure](docs/assests/image.png)
 
