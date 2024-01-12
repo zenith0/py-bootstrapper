@@ -10,8 +10,8 @@ After bootstrapping you should be good to go to kick-start an oop project, incl 
 ## Usage
 Call bootstrap.py with the following arguments:
 
-```python bootstrap.py testproject --prj_dir c:\\foo```
-The first positional argument is your project name. --prj_dir defines the desired folder location. This can be absolute or relative (to where the script lives).
+```python bootstrap.py testproject -prj_dir c:\\foo```
+The first positional argument is your project name. -prj_dir defines the desired folder location. This can be absolute or relative (to where the script lives).
 
 --prj-dir is optional, if not given the directory will be created on the relative position and named like the project (arg 1).
 
