@@ -5,13 +5,13 @@ def main():
     # Parse the command-line arguments 
     parser = argparse.ArgumentParser(description='A script with command-line arguments.')
     parser.add_argument("prj_name", help='Name of your project')
-    parser.add_argument('-prj_dir', type=str, help='Your project folder')
+    parser.add_argument('-prj_dst', help='Destination of your project')
      
     args = parser.parse_args()
 
 
     # Create the project folder
-    ## TODO: move to utils?
+    ## TODO: !if! this gets additional features consider to introduce a projectbuilder class  
     name = args.prj_name
     directory = args.prj_dir 
     if not directory:

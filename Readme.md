@@ -10,11 +10,11 @@ After bootstrapping you should be good to go to kick-start an oop project, incl 
 ## Usage
 Call bootstrap.py with the following arguments:
 
-```python bootstrap.py testproject -prj_dir c:\\foo```
-The first positional argument is your project name. -prj_dir defines the desired folder location. This can be absolute or relative (to where the script lives).
+```python bootstrap.py testproject -prj_dst <path>```
+The first positional argument is your project name. -prj_dst defines the desired folder location. This can be absolute or relative (to where the script lives).
 Please note: the full project tree is built under the given path.
 
---prj-dir is optional, if not given the directory will be created on the relative position and named like the project (arg 1).
+--prj-dst is optional, if not given the directory will be created on the relative position and named like the project (arg 1).
 
 ## .gitignore
 I am using most of the time a default .gitignore from GH: [https://github.com/github/gitignore/blob/main/Python.gitignore](https://github.com/github/gitignore/blob/main/Python.gitignore)
