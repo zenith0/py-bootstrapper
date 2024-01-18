@@ -13,7 +13,7 @@ def main():
     # Create the project folder
     ## TODO: !if! this gets additional features consider to introduce a projectbuilder class  
     name = args.prj_name
-    directory = args.prj_dir 
+    directory = args.prj_dst 
     if not directory:
         directory = name
         print ("no directory was set, using project name as folder location: ", directory)
